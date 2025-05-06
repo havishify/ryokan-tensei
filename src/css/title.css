@@ -1,0 +1,45 @@
+.title {
+  position: absolute;
+  top: 18vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+.title-up-left {
+  margin: 0;
+  padding: 0;
+  margin-right: 4px;
+  font-family: "HakgyoansimDunggeunmisoTTF-B";
+  font-size: 64px;
+  color: rgb(243, 159, 173);
+  background-color: white;
+  text-shadow: -6px -6px 0 #fff, 6px -6px 0 #fff, -6px 6px 0 #fff, 6px 6px 0 #fff;
+}
+.title-up-right {
+  margin: 0;
+  padding: 0;
+  font-family: "Cafe24Ohsquare";
+  font-size: 38px;
+  color: rgb(143, 182, 255);
+  background-color: white;
+  text-shadow: -6px -6px 0 #fff, 6px -6px 0 #fff, -6px 6px 0 #fff, 6px 6px 0 #fff;
+}
+.title-down-left {
+  margin: 0;
+  padding: 0;
+  margin-right: 4px;
+  font-family: "HakgyoansimDunggeunmisoTTF-B";
+  font-size: 64px;
+  color: rgb(226, 165, 52);
+  background-color: white;
+  text-shadow: -6px -6px 0 #fff, 6px -6px 0 #fff, -6px 6px 0 #fff, 6px 6px 0 #fff;
+}
+.title-down-right {
+  margin: 0;
+  padding: 0;
+  font-family: "Cafe24Ohsquare";
+  font-size: 28px;
+  color: rgb(166, 192, 166);
+  text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff;
+}

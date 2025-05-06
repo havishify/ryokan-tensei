@@ -1,0 +1,15 @@
+const soundClick = new Audio("/audio/sound/click.ogg");
+const soundTyping = new Audio("/audio/sound/typing.mp3");
+
+export function playSoundClick() {
+  const element = soundClick.cloneNode() as HTMLAudioElement;
+  element.volume = 0.6;
+  element.play();
+}
+
+export function playSoundTyping() {
+  const sound = soundTyping.cloneNode() as HTMLAudioElement;
+  sound.playbackRate = 0.75 + Math.random() * 0.4;
+  sound.volume = 0.09;
+  sound.play();
+}

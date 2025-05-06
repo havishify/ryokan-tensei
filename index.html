@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/src/css/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ryokan-tensei</title>
+    <script type="module" src="/src/main.ts" defer></script>
+  </head>
+  <body>
+    <main class="container flex-column">
+      <div id="title-screen" class="flex-column-top full closed">
+        <div class="imgcontainer">
+          <img src="/image/ryokan_outer/night.webp">
+        </div>
+        <div class="title">
+          <div class="flex-row">
+            <div class="title-up-left">전생</div>
+            <div class="title-up-right">했더니</div>
+          </div>
+          <div class="flex-row">
+            <div class="title-down-left">여관</div>
+            <div class="title-down-right">이 되어버렸다?</div>
+          </div>
+        </div>
+        <div class="flex-column" style="width: 100%; gap: 11px; position: absolute; bottom: 14vh;">
+          <button id="btnnew">새로시작</button>
+          <button disabled>이어서</button>
+          <button>크레딧</button>
+        </div>
+      </div>
+      <div id="cinematic" class="flex-column-top full closed">
+        <div class="imgcontainer">
+          <img id="cinematicimg" src="/image/intro/1.webp">
+        </div>
+        <div id="textbox">
+          <p id="dm"></p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

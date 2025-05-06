@@ -1,0 +1,1 @@
+export const typespeed: number = 50;
