@@ -5,5 +5,5 @@ export function clear() {
 }
 
 export function end() {
-  if (dm) dm.innerHTML += '<p class="plzpress">엔터 또는 스페이스바를 누르십시오.</p>';
+  if (dm) dm.innerHTML += '<p class="plzpress">엔터 또는 화면을 클릭하십시오.</p>';
 }

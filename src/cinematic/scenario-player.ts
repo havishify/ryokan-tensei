@@ -10,15 +10,19 @@ import { clear, end } from "./utils";
 let voiceplayer: HTMLAudioElement | null = null;
 export default async function startScenarioPlayer(scenario: ScenarioGroupProps[]) {
   const next = () => {
-    const keys: string[] = ["Enter", " "];
     return new Promise<void>((resolve) => {
-      const handler = (ev: KeyboardEvent) => {
-        if (keys.includes(ev.key)) {
-          window.removeEventListener("keydown", handler);
+      const handlerKeydown = (ev: KeyboardEvent) => {
+        if (["Enter", " "].includes(ev.key)) {
+          window.removeEventListener("keydown", handlerKeydown);
           resolve();
         }
-      }
-      window.addEventListener("keydown", handler);
+      };
+      const handlerClick = (_: MouseEvent) => {
+        window.removeEventListener("click", handlerClick);
+        resolve();
+      };
+      window.addEventListener("keydown", handlerKeydown);
+      window.addEventListener("click", handlerClick)
     });
   };
 
@@ -58,14 +62,18 @@ let interrupted: boolean = false;
 async function text(type: ScenarioTextTypes, str: string | string[], anim: boolean): Promise<boolean> {
   if (!dm) return false;
 
-  const keyHandler = (ev: KeyboardEvent) => {
-    if (ev.key === "Enter" || ev.key === " ") {
+  const handlerKeydown = (ev: KeyboardEvent) => {
+    if (["Enter", " "].includes(ev.key)) {
       anim = false;
       interrupted = true;
     }
   };
-
-  window.addEventListener("keydown", keyHandler);
+  const handlerClick = (_: MouseEvent) => {
+    anim = false;
+    interrupted = true;
+  }
+  window.addEventListener("keydown", handlerKeydown);
+  window.addEventListener("click", handlerClick);
 
   let target: HTMLElement | null = null;
 
@@ -127,7 +135,9 @@ async function text(type: ScenarioTextTypes, str: string | string[], anim: boole
   }
   
   target.appendChild(document.createElement("br"));
-  window.removeEventListener("keydown", keyHandler);
+
+  window.removeEventListener("keydown", handlerKeydown);
+  window.removeEventListener("click", handlerClick);
 
   return interrupted;
 }

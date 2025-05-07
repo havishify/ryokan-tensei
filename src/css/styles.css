@@ -131,6 +131,16 @@ button:disabled {
   margin-top: 0px;
   z-index: 1;
 }
+#cinematicskip {
+  margin: 4px;
+  padding: 6px 14px;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
 
 @keyframes smoothFade {
   0%   { color:#ffffff; }

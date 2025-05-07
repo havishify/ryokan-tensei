@@ -1,7 +1,8 @@
 let element: HTMLAudioElement | null;
 
-export default function playMusic(theme: "title" | "gag" | "wind" | "orgol" ) {
+export default function playMusic(theme: "title" | "gag" | "wind" | "orgol" | "sad" | "crisis" | "heroine1_theme") {
   let sound: HTMLAudioElement | null;
+  let volume: number = 0.8;
 
   switch (theme) {
     case "title":
@@ -16,6 +17,17 @@ export default function playMusic(theme: "title" | "gag" | "wind" | "orgol" ) {
     case "orgol":
       sound = new Audio("/audio/music/orgol.mp3");
       break;
+    case "sad":
+      sound = new Audio("/audio/music/sad.mp3");
+      break;
+    case "crisis":
+      sound = new Audio("/audio/music/crisis.ogg");
+      volume = 0.35;
+      break;
+    case "heroine1_theme":
+      sound = new Audio("/audio/music/heroine1_theme.ogg");
+      volume = 0.42;
+      break;
     default:
       return;
   }
@@ -23,7 +35,7 @@ export default function playMusic(theme: "title" | "gag" | "wind" | "orgol" ) {
   stopMusic();
 
   element = sound.cloneNode() as HTMLAudioElement;
-  element.volume = 0.8;
+  element.volume = volume;
   element.loop = true;
   element.play();
 }

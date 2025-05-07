@@ -65,8 +65,8 @@ window.addEventListener("DOMContentLoaded", () => {
       btnnew.disabled = true;
       playSoundClick();
       stopMusic();
-      startCinematic("intro", scenarioIntro, null, () => {
-        console.log("after");
+      startCinematic("intro", scenarioIntro, () => playMusic("sad"), () => {
+        cinematicFadein();
       });
     });
   }
