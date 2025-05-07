@@ -3,7 +3,7 @@ const soundTyping = new Audio("/audio/sound/typing.mp3");
 
 export function playSoundClick() {
   const element = soundClick.cloneNode() as HTMLAudioElement;
-  element.volume = 0.6;
+  element.volume = 0.5;
   element.play();
 }
 
