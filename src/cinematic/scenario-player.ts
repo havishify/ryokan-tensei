@@ -1,12 +1,14 @@
 import { playSoundTyping } from "@/audio/sound";
-import { ScenarioItemProps } from "@/types";
+import { ScenarioGroupProps } from "@/types";
 import sleep from "@/utils/sleep";
+import { ScenarioTextTypes } from "@/types";
 import { typespeed } from "@/global";
 import { dm } from "@/main";
 
 import { clear, end } from "./utils";
 
-export default async function startScenarioPlayer(scenario: ScenarioItemProps[][]) {
+let voiceplayer: HTMLAudioElement | null = null;
+export default async function startScenarioPlayer(scenario: ScenarioGroupProps[]) {
   const next = () => {
     const keys: string[] = ["Enter", " "];
     return new Promise<void>((resolve) => {
@@ -20,75 +22,106 @@ export default async function startScenarioPlayer(scenario: ScenarioItemProps[][
     });
   };
 
-  for (const __scenario of scenario) {
+  for (const {group, callback} of scenario) {
     clear();
 
     let skip: boolean = false;
 
-    for (let i = 0; i < __scenario.length; i++) {
-      const { type, str, callback } = __scenario[i];
+    for (let i = 0; i < group.length; i++) {
+      const { type, str, voice, callback } = group[i];
 
+      if (voice) {
+        voiceplayer = voice.cloneNode() as HTMLAudioElement;
+        voiceplayer.volume = 1;
+        voiceplayer.play();
+      }
       skip = await text(type, str, !skip);
-      callback?.();
+      
+      await callback?.();
     }
   
     end();
     await next();
+    
+    if (voiceplayer) {
+      voiceplayer.pause();
+      voiceplayer = null;
+    }
+
+    await callback?.();
+
+    interrupted = false;
   }
 }
 
-async function text(type:  "text" | "speech" | "desc", str: string | string[], anim: boolean = true): Promise<boolean> {
+let interrupted: boolean = false;
+async function text(type: ScenarioTextTypes, str: string | string[], anim: boolean): Promise<boolean> {
   if (!dm) return false;
 
-  let interrupted: boolean = false;
-  const keyHandler = (e: KeyboardEvent) => {
-    if (e.key === "Enter") {
+  const keyHandler = (ev: KeyboardEvent) => {
+    if (ev.key === "Enter" || ev.key === " ") {
       anim = false;
       interrupted = true;
     }
   };
+
   window.addEventListener("keydown", keyHandler);
 
   let target: HTMLElement | null = null;
 
-  if (type === "desc") {
-    target = document.createElement("i");
-  } else {
-    target = document.createElement("p");
+  switch (type) {
+    case "narrator":
+      target = document.createElement("i");
+      break;
+    case "speech":
+      target = document.createElement("p");
+      break;
+    case "natural":
+      target = document.createElement("p");
+      target.classList.add("textnatural");
+      break;
+    case "mind":
+      target = document.createElement("p");
+      target.classList.add("mindtext");
+      break;
+      
   }
 
   dm.appendChild(target);
- 
+
+  const addquotationmark = () => target.innerText += ((type === "speech" || type === "natural") && '"' || (type === "mind" && `'` || ''));
+
   const lines: string[] = Array.isArray(str) ? str : [str];
 
   if (anim) {
     for (let i = 0; i < lines.length; i++) {
       const line: string = lines[i];
   
-      if (type === "text") target.innerText += '"';
+      addquotationmark();
       
       for (const c of line) {
         if (interrupted) break;
-  
+
         target.append(c);
         playSoundTyping();
         await sleep(typespeed);
       }
+
       if (interrupted) break;
   
-      if (type === "text") target.innerText += '"';
+      addquotationmark();
     
       target.appendChild(document.createElement("br"));
     }
   }
     
-  if (!anim || interrupted) {
+  if (interrupted) {
     target.innerHTML = "";
 
     lines.forEach((v: string) => {
-      if (type === "text") target.innerText += '"';
+      addquotationmark();
       target.append(v);
-      if (type === "text") target.innerText += '"';
+      addquotationmark();
       target.appendChild(document.createElement("br"));
     });
   }

@@ -2,7 +2,7 @@ import playMusic, { stopMusic } from "@/audio/music";
 import { playSoundClick } from "@/audio/sound";
 import startScenarioPlayer from "@/cinematic/scenario-player";
 import scenarioIntro from "@/scenarios/0_intro";
-import { CinematicTypes, ScenarioItemProps } from "@/types";
+import { CinematicTypes, ScenarioGroupProps } from "@/types";
 import sleep from "@/utils/sleep";
 
 export let scene: "title-screen" | "cinematic" | "ingame" = "title-screen";
@@ -17,14 +17,26 @@ export let dm: HTMLParagraphElement | null;
 export let titleScreenScene: HTMLDivElement | null;
 export let cinematicScene: HTMLDivElement | null;
 
-export async function startCinematic(cType: CinematicTypes, scenario: ScenarioItemProps[][], before: () => void, after: () => void) {
+let cinematicimg: HTMLImageElement | null;
+export const changeCinematicimg = (path: string) => {
+  if (cinematicimg) cinematicimg.src = path;
+};
+
+export function cinematicFadein() {
+  cinematicScene?.classList.add("closed");
+}
+export function cinematicFadeout() {
+  cinematicScene?.classList.remove("closed");
+}
+
+export async function startCinematic(cType: CinematicTypes, scenario: ScenarioGroupProps[], before: (() => void) | null, after: (() => void) | null) {
   if (!titleScreenScene || !cinematicScene) return;
 
   titleScreenScene.classList.add("closed");
 
   await sleep(2500);
 
-  before();
+  before?.();
 
   cinematic = true;
   cinematicType = cType;
@@ -33,7 +45,7 @@ export async function startCinematic(cType: CinematicTypes, scenario: ScenarioIt
 
   await startScenarioPlayer(scenario);
 
-  after();
+  after?.();
 }
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -43,6 +55,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   titleScreenScene = document.querySelector("#title-screen");
   cinematicScene = document.querySelector("#cinematic");
+  cinematicimg = document.querySelector("#cinematicimg");
 
   if (titleScreenScene) titleScreenScene.classList.remove("closed");
   
@@ -52,9 +65,7 @@ window.addEventListener("DOMContentLoaded", () => {
       btnnew.disabled = true;
       playSoundClick();
       stopMusic();
-      startCinematic("intro", scenarioIntro, () => {
-        playMusic("intro before");
-      }, () => {
+      startCinematic("intro", scenarioIntro, null, () => {
         console.log("after");
       });
     });

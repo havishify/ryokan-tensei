@@ -33,6 +33,14 @@ i {
   font-size: 16px;
   font-weight: 200;
 }
+.textnatural {
+  font-size: 16px;
+  font-weight: 400;
+}
+.mindtext {
+  color: rgb(214, 214, 214);
+  font-weight: 200;
+}
 
 button {
   margin: 0;

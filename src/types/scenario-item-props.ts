@@ -1,7 +1,10 @@
+import ScenarioTextTypes from "./scenario-text-types";
+
 type ScenarioItemProps = {
-  type: "text" | "speech" | "desc",
+  type: ScenarioTextTypes,
   str: string | string[],
-  callback?: () => void
+  voice?: HTMLAudioElement;
+  callback?: () => Promise<void>
 };
 
 export default ScenarioItemProps;
