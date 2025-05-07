@@ -735,6 +735,13 @@ const scenarioIntro: ScenarioGroupProps[] = [
           "안돼! 그녀에게 어떤 사정이 있을거야.",
           "죽여서는 안돼."
         ]
+      },
+      {
+        type: "mind",
+        str: [
+          "아무리 그래도 그렇지...",
+          "무슨 우동우동 열매야?"
+        ]
       }
     ]
   },
@@ -775,6 +782,10 @@ const scenarioIntro: ScenarioGroupProps[] = [
       {
         type: "mind",
         str: "할 수 밖에 없어... 시도는 해봐야지."
+      },
+      {
+        type: "natural",
+        str: "튜토리얼로 이어집니다."
       }
     ]
   }
