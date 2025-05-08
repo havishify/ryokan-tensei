@@ -168,7 +168,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
       {
         type: "speech",
         str: "아무도 없네...",
-        voice: new Audio("/audio/voice/intro/1.mp3")
+        voice: new Audio("/audio/voice/0_intro/1.mp3")
       },
       {
         type: "narrator",
@@ -218,7 +218,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
           "이상해... 이런 곳에 여관이라니.",
           "분명 저번까지만 해도..."
         ],
-        voice: new Audio("/audio/voice/intro/2.mp3")
+        voice: new Audio("/audio/voice/0_intro/2.mp3")
       },
       {
         type: "narrator",
@@ -325,7 +325,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
       {
         type: "speech",
         str: "조금... 기다려 볼까...",
-        voice: new Audio("/audio/voice/intro/3.mp3")
+        voice: new Audio("/audio/voice/0_intro/3.mp3")
       },
       {
         type: "narrator",
@@ -409,7 +409,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
       {
         type: "speech",
         str: "에에...???",
-        voice: new Audio("/audio/voice/intro/4.mp3")
+        voice: new Audio("/audio/voice/0_intro/4.mp3")
       },
       {
         type: "narrator",
@@ -434,7 +434,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
           "1 포인트를 사용하여 물을 소환하는데 성공했습니다.",
           "남은 포인트는 254포인트 입니다."
         ],
-        voice: new Audio("/audio/voice/intro/5.mp3")
+        voice: new Audio("/audio/voice/0_intro/5.mp3")
       }
     ]
   },
@@ -484,7 +484,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
           "아닙니다.",
           "마스터는 이 여관의 주인이십니다."
         ],
-        voice: new Audio("/audio/voice/intro/6.mp3")
+        voice: new Audio("/audio/voice/0_intro/6.mp3")
       }
     ],
   },
@@ -497,7 +497,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
           "정확히는...",
           "마스터가 곧 여관이고, 여관이 곧 마스터입니다."
         ],
-        voice: new Audio("/audio/voice/intro/7.mp3")
+        voice: new Audio("/audio/voice/0_intro/7.mp3")
       }
     ],
   },
@@ -590,7 +590,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
           "요즘 모험가들이 이 근방에서 실종됐던 건",
           "이 장소 때문이었구나."
         ],
-        voice: new Audio("/audio/voice/intro/8.mp3")
+        voice: new Audio("/audio/voice/0_intro/8.mp3")
       }
     ]
   },
@@ -603,7 +603,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
           "있잖아. 몇명이나 잡아먹었어?",
           "아직도 배고파?"
         ],
-        voice: new Audio("/audio/voice/intro/9.mp3")
+        voice: new Audio("/audio/voice/0_intro/9.mp3")
       }
     ]
   },
@@ -618,7 +618,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
           "역시 너는 그때 죽여야 했어.",
           "빨리 튀어나와."
         ],
-        voice: new Audio("/audio/voice/intro/10.mp3")
+        voice: new Audio("/audio/voice/0_intro/10.mp3")
       }
     ],
     callback: async () => playMusic("heroine1_theme")
@@ -657,7 +657,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
           "그녀를 막으셔야 합니다.",
           "이곳, 아니 이 지역 전체를 얼어붙게 만드려 하고 있어요."
         ],
-        voice: new Audio("/audio/voice/intro/11.mp3")
+        voice: new Audio("/audio/voice/0_intro/11.mp3")
       }
     ]
   },
@@ -669,7 +669,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
         str: [
           "그렇게 된다면 마스터는 사망하게 될 것입니다."
         ],
-        voice: new Audio("/audio/voice/intro/12.mp3")
+        voice: new Audio("/audio/voice/0_intro/12.mp3")
       }
     ]
   },
@@ -722,7 +722,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
           "간단하게 그녀의 머리 속에",
           "우동 한 그릇을 소환한다면 한 방에..."
         ],
-        voice: new Audio("/audio/voice/intro/13.mp3")
+        voice: new Audio("/audio/voice/0_intro/13.mp3")
       },
     ]
   },
@@ -754,7 +754,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
           "...그렇다면 그녀가 좋아하는 음식과",
           "마스터의 진심을 담은 메모를 소환하시면 어떨지요?",
         ],
-        voice: new Audio("/audio/voice/intro/14.mp3")
+        voice: new Audio("/audio/voice/0_intro/14.mp3")
       }
     ]
   },
@@ -764,7 +764,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
       {
         type: "speech",
         str: "물을 소환하셨던 것처럼 시도해보세요.",
-        voice: new Audio("/audio/voice/intro/15.mp3")
+        voice: new Audio("/audio/voice/0_intro/15.mp3")
       }
     ]
   },
@@ -785,7 +785,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
       },
       {
         type: "natural",
-        str: "튜토리얼로 이어집니다."
+        str: "(튜토리얼로 이어집니다)"
       }
     ]
   }

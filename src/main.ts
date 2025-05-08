@@ -1,15 +1,9 @@
-import { message } from "@tauri-apps/plugin-dialog";
-
 import playMusic, { stopMusic } from "@/audio/music";
 import { playSoundClick } from "@/audio/sound";
 import startScenarioPlayer from "@/cinematic/scenario-player";
 import scenarioIntro from "@/scenarios/0_intro";
-import { CinematicTypes, ScenarioGroupProps } from "@/types";
+import { ScenarioGroupProps } from "@/types";
 import sleep from "@/utils/sleep";
-
-export let scene: "title-screen" | "cinematic" | "ingame" = "title-screen";
-// let cinematic: boolean = false;
-// let cinematicType: CinematicTypes = null;
 
 export let speaking: boolean = false;
 export const setspeaking = (v: boolean) => speaking = v;
@@ -18,7 +12,7 @@ export let dm: HTMLParagraphElement | null;
 
 export let titleScreenScene: HTMLDivElement | null;
 export let cinematicScene: HTMLDivElement | null;
-// let gameServingScene: HTMLDivElement | null;
+let gameServingScene: HTMLDivElement | null;
 
 let cinematicimg: HTMLImageElement | null;
 export const changeCinematicimg = (path: string) => {
@@ -33,7 +27,7 @@ export function cinematicFadeout() {
   cinematicScene?.classList.remove("closed");
 }
 
-export async function startCinematic(cType: CinematicTypes, scenario: ScenarioGroupProps[], before: (() => void) | null, skipped: (() => void) | null, after: (() => void) | null) {
+export async function startCinematic(scenario: ScenarioGroupProps[], before: (() => void) | null, skipped: (() => void) | null, after: (() => void) | null) {
   if (!titleScreenScene || !cinematicScene) return;
 
   titleScreenScene.classList.add("closed");
@@ -41,11 +35,6 @@ export async function startCinematic(cType: CinematicTypes, scenario: ScenarioGr
   await sleep(2500);
 
   before?.();
-
-  console.log(cType);
-
-  // cinematic = true;
-  // cinematicType = cType;
 
   cinematicScene.classList.remove("closed");
 
@@ -65,7 +54,7 @@ window.addEventListener("DOMContentLoaded", () => {
   cinematicScene = document.querySelector("#cinematic");
   cinematicimg = document.querySelector("#cinematicimg");
   cinematicskip = document.querySelector("#cinematicskip");
-  // gameServingScene = document.querySelector("#game-serving");
+  gameServingScene = document.querySelector("#game-serving");
 
   if (cinematicimg && cinematicskip) {
     cinematicskip.style.left = `${cinematicimg.getBoundingClientRect().left}px`;
@@ -79,18 +68,12 @@ window.addEventListener("DOMContentLoaded", () => {
       btnnew.disabled = true;
       playSoundClick();
       stopMusic();
-      startCinematic("intro", scenarioIntro, () => playMusic("sad"), () => {
+      startCinematic(scenarioIntro, () => playMusic("sad"), () => {
         playMusic("heroine1_theme");
       }, () => {
         cinematicFadein();
-
         sleep(1250).then(() => {
-          // 다음에 이어서 개발하기!
-          // if (gameServingScene) gameServingScene.classList.remove("closed");
-
-          // 일단은 여기까지...
-          
-          message("플레이 해주셔서 감사합니다...", { title: "끝!", kind: "info" }).then(() => window.location.reload());
+          if (gameServingScene) gameServingScene.classList.remove("closed");
         });
       });
     });
