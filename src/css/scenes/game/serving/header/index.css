@@ -4,3 +4,9 @@
   padding-left: 8px;
   padding-right: 8px;
 }
+
+.serving-gauge-label {
+  font-family: "Ownglyph_ParkDaHyun";
+  font-size: 20px;
+  text-shadow: 1px 2px rgba(141, 141, 141, 0.7);
+}

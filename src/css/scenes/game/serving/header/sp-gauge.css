@@ -1,19 +1,17 @@
-#serving-spgague-uisplabelcover {
+#serving-spgague-uispgague-out {
   background-color: white;
   filter: drop-shadow(0px 2px 3px rgba(0, 0, 0));
   width: 64px;
   height: 64px;
   border-radius: 50%;
 }
-#serving-spgague-uisplabel {
-  background-image: linear-gradient(145deg, #a5d4e5, #529dc6);
+
+#serving-spgague-uispgague-in {
+  background: linear-gradient(145deg, #bbd6df, #4c96be);
   filter: drop-shadow(-3px -3px 6px rgba(255, 255, 255, 0.5)) drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.2));
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  font-family: "Ownglyph_ParkDaHyun";
-  font-size: 20px;
   text-align: center;
-  text-shadow: 1px 2px rgba(141, 141, 141, 0.7);
-  transition: all 1.2 ease-in-out;
+  transition: all 0.3s ease-in-out;
 }

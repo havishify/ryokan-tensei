@@ -1,6 +1,6 @@
 import { playSoundTyping } from "@/audio/sound";
 import { ScenarioGroupProps } from "@/types";
-import sleep from "@/utils/sleep";
+import { sleep } from "@/utils";
 import { ScenarioTextTypes } from "@/types";
 import { typespeed } from "@/global";
 import { elementDM } from "@/main";

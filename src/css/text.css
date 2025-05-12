@@ -36,3 +36,47 @@ i {
   animation: smoothFade 1.6s ease-in-out infinite;
   font-weight: 200;
 }
+
+#tooltip {
+  margin: 6px;
+  padding: 6px 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-family: "Pretendard", sans-serif;
+  font-size: 16px;
+  font-weight: 100;
+  border-radius: 16px;
+}
+
+#arrowed-alarm {
+  --arrowed-alarm-bgcolor: rgba(255, 255, 255, 0.8);
+  position: absolute; 
+  overflow: visible;
+  z-index: 9998;
+  margin: 6px;
+  padding: 6px 10px;
+  background-color: var(--arrowed-alarm-bgcolor);
+  color: black;
+  font-family: "Ownglyph_ParkDaHyun";
+  font-size: 18px;
+  font-weight: 100;
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity .25s ease-out;
+}
+#arrowed-alarm.arrowed-alarm-open { opacity: 1; visibility: visible; }
+#arrowed-alarm.arrowed-alarm-closed { 
+  opacity: 0; 
+  visibility: hidden;
+}
+#arrowed-alarm::after{
+  content: '';
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border: 6px solid transparent;
+}
+#arrowed-alarm.left::after   { top:50%; right:-12px; transform:translateY(-50%);  border-left-color:var(--arrowed-alarm-bgcolor);}
+#arrowed-alarm.right::after  { top:50%; left:-12px;  transform:translateY(-50%);  border-right-color:var(--arrowed-alarm-bgcolor);}
+#arrowed-alarm.top::after    { left:50%; bottom:-12px;transform:translateX(-50%); border-top-color:var(--arrowed-alarm-bgcolor);}
+#arrowed-alarm.bottom::after { left:50%; top:-12px;   transform:translateX(-50%); border-bottom-color:var(--arrowed-alarm-bgcolor);}

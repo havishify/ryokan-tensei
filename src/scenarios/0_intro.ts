@@ -1,9 +1,8 @@
 import playMusic, { stopMusic } from "@/audio/music";
 import { playSoundBodyFall, playSoundDoor, playSoundIce, playSoundSitting, playSoundSummon } from "@/audio/sound";
-import { clear, fadein, fadeout } from "@/cinematic";
+import { changeBackgroundImage, clear, fadein, fadeout } from "@/cinematic";
 import { ScenarioGroupProps } from "@/types";
-import sleep from "@/utils/sleep";
-import { changeCinematicimg } from "@/main";
+import { sleep } from "@/utils";
 
 const scenarioIntro: ScenarioGroupProps[] = [
   {
@@ -81,7 +80,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
 
       await sleep(1250);
 
-      changeCinematicimg("/image/none.webp");
+      changeBackgroundImage("/image/none.webp");
 
       await sleep(1250);
 
@@ -154,7 +153,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
       await sleep(1000);
 
       playSoundDoor();
-      changeCinematicimg("/image/intro/2.webp");
+      changeBackgroundImage("/image/intro/2.webp");
 
       await sleep(1500);
       
@@ -319,7 +318,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
     ],
     callback: async () => {
       playSoundSitting();
-      changeCinematicimg("/image/intro/3.webp");
+      changeBackgroundImage("/image/intro/3.webp");
     }
   },
 
@@ -376,7 +375,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
     callback: async () => {
       stopMusic();
       playSoundSummon();
-      changeCinematicimg("/image/intro/4.webp");
+      changeBackgroundImage("/image/intro/4.webp");
     }
   },
 
@@ -559,7 +558,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
     ],
     callback: async () => {
       playSoundIce();
-      changeCinematicimg("/image/intro/5.webp");
+      changeBackgroundImage("/image/intro/5.webp");
     }
   },
 

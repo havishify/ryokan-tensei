@@ -1,31 +1,28 @@
 import playMusic, { stopMusic } from "@/audio/music";
 import { playSoundClick } from "@/audio/sound";
 import { fadein, startCinematic } from "@/cinematic";
-import prepareServing from "@/game/serving/game-manager";
+import { prepareServing } from "@/game/serving";
 import scenarioIntro from "@/scenarios/0_intro";
-import sleep from "@/utils/sleep";
+import { sleep } from "@/utils";
 import { elementGameServingScene, elementTitleScreenNewStart } from "@/main";
 
 export default function listenTitleScreenNewStart() {
-    elementTitleScreenNewStart.value.disabled = true;
+  elementTitleScreenNewStart.value.disabled = true;
 
-    playSoundClick();
+  playSoundClick();
+  stopMusic();
 
-    stopMusic();
+  const before = () => playMusic("sad");
+  const skipped = () => playMusic("heroine1_theme");
+  const after = () => {
+    fadein();
 
-    const before = () => playMusic("sad");
-    const skipped = () => playMusic("heroine1_theme");
-    const after = () => {
-      fadein();
+    sleep(1250).then(() => {
+      elementGameServingScene.value.classList.remove("closed");
 
-      sleep(1250).then(async () => {
-        elementGameServingScene.value.classList.remove("closed");
+      prepareServing(true);
+    });
+  };
 
-        if (await prepareServing()) {
-          // Go!
-        }
-      });
-    };
-
-    startCinematic(scenarioIntro, before, skipped, after);
+  startCinematic(scenarioIntro, before, skipped, after);
 }

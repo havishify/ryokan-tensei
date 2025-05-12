@@ -10,7 +10,8 @@
   </head>
   <body>
     <main class="container flex-column">
-      <span id="tooltip" class="closed"></span>
+      <span id="tooltip" class="closed" style="position: absolute; z-index: 9999;"></span>
+      <span id="arrowed-alarm" class="closed"></span>
       <div id="title-screen" class="flex-column-top full closed">
         <div class="imgcontainer">
           <img src="/image/ryokan_outer/night.webp">
@@ -45,25 +46,38 @@
           <div id="game-serving-header" class="game-serving-content flex-column">
             <div class="flex-row-sb-top fulw">
               <div id="serving-timewindow" class="flex-column-top">
-                <p id="serving-timewindow-uidatelabel">323년 3월 1일</p>
-                <p id="serving-timewindow-uiclocklabel">새벽 3시</p>
+                <p id="serving-timewindow-uidatelabel"></p>
+                <p id="serving-timewindow-uiclocklabel"></p>
               </div>
               <div class="flex-row-top" style="gap: 11px;">
-                <div id="serving-spgague-uisplabelcover" class="flex-column"><p id="serving-spgague-uisplabel" class="flex-column">10 SP</p></div>
-                <div id="serving-point-gaugeuiptlabelcover" class="flex-column"><p id="serving-point-gaugeuiptlabel" class="flex-column">254 P</p></div>
+                <div id="serving-spgague-uispgague-out" class="flex-column">
+                  <div id="serving-spgague-uispgague-in" class="flex-column">
+                    <p class="serving-gauge-label">3 SP</p>
+                  </div>
+                </div>
+                <div id="serving-pointgague-uipointgague-out" class="flex-column">
+                  <div id="serving-pointgague-uipointgague-in" class="flex-column">
+                    <p class="serving-gauge-label">254 P</p>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="fulw">
               <div class="serving-questwindow">
                 <p class="serving-questwindow-type">메인 퀘스트</p>
-                <p class="serving-questwindow-title">그녀를 막아라!</p>
-                <p class="serving-questwindow-desc">&nbsp;&nbsp;- 음식을 대접하기<br>&nbsp;&nbsp;- 진심을 담은 메모를 전달하기</p>
+                <p class="serving-questwindow-title"></p>
+                <p class="serving-questwindow-desc"></p>
               </div>
             </div>
           </div>
           <div id="game-serving-body" class="game-serving-content flex-column"></div>
           <div id="game-serving-footer" class="game-serving-content flex-column fulw">
             <p id="serving-uiturnlabel">2턴 남음</p>
+          </div>
+        </div>
+        <div id="game-serving-tutorial" class="flex-column-bottom full closed">
+          <div id="game-serving-tutorial-textbox" class="closed">
+            <p id="game-serving-tutorial-dm"></p>
           </div>
         </div>
       </div>

@@ -1,0 +1,16 @@
+#game-serving-tutorial {
+  position: absolute;
+  z-index: 10;
+  transition: all 0.4s ease-in;
+}
+#game-serving-tutorial.dark {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+#game-serving-tutorial-textbox {
+  margin-bottom: 48px;
+  width: 324px;
+}
+#game-serving-tutorial-dm {
+  text-align: center;
+}

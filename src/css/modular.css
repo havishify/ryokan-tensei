@@ -10,6 +10,12 @@
   justify-content: top;
   align-items: center;
 }
+.flex-column-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+}
 .flex-column-left {
   display: flex;
   flex-direction: column;

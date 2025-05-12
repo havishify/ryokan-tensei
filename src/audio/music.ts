@@ -1,4 +1,4 @@
-const bgmTitle: HTMLAudioElement = new Audio("/audio/music/title.ogg");
+const bgmTitle: HTMLAudioElement = new Audio("/audio/music/title.mp3");
 const bgmGag: HTMLAudioElement = new Audio("/audio/music/gag.mp3");
 const bgmWind: HTMLAudioElement = new Audio("/audio/music/wind.ogg");
 const bgmOrgol: HTMLAudioElement = new Audio("/audio/music/orgol.mp3");
@@ -24,7 +24,6 @@ export default function playMusic(theme: MusicList) {
   switch (theme) {
     case "title":
       sound = bgmTitle;
-      volume = 0.3;
       break;
     case "gag":
       sound = bgmGag;

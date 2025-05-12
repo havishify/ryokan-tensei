@@ -5,7 +5,8 @@ const soundSitting = new Audio("/audio/sound/sitting.mp3");
 const soundBodyFall = new Audio("/audio/sound/bodyfall.mp3");
 const soundSummon = new Audio("/audio/sound/summon.ogg");
 const soundIce = new Audio("/audio/sound/ice.ogg");
-const soundXpBeep = new Audio("/audio/sound/xpbeep.ogg");
+const soundBeep1 = new Audio("/audio/sound/beep1.ogg");
+const soundChime = new Audio("/audio/sound/chime.ogg");
 
 export function playSoundClick() {
   const element = soundClick.cloneNode() as HTMLAudioElement;
@@ -50,8 +51,14 @@ export function playSoundIce() {
   element.play();
 }
 
-export function playSoundXpBeep() {
-  const element = soundXpBeep.cloneNode() as HTMLAudioElement;
-  element.volume = 0.4;
+export function playSoundBeep1() {
+  const element = soundBeep1.cloneNode() as HTMLAudioElement;
+  element.volume = 0.7;
   element.play();
+}
+
+export function playSoundChime() {
+  const el = soundChime.cloneNode() as HTMLAudioElement;
+  el.volume = 0.6;
+  el.play();
 }
