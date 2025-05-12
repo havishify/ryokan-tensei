@@ -1,0 +1,38 @@
+p {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: "Pretendard", sans-serif;
+  font-size: 16px;
+  font-weight: 100;
+  transition: all 0.2s ease-in-out;
+}
+i {
+  margin: 0;
+  padding: 0;
+  color: rgb(185, 185, 185);
+  font-family: "Pretendard", sans-serif;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+.textnatural {
+  font-size: 16px;
+  font-weight: 400;
+}
+.mindtext {
+  color: rgb(214, 214, 214);
+  font-weight: 200;
+}
+
+@keyframes smoothFade {
+  0%   { color:#ffffff; }
+  20%  { color:#ffffff; }
+  50%  { color:#a0a0a0; }
+  100% { color:#ffffff; }
+  100% { color:#ffffff; }
+}
+.plzpress {
+  animation: smoothFade 1.6s ease-in-out infinite;
+  font-weight: 200;
+}

@@ -54,3 +54,9 @@
 .fulw {
   width: 100%;
 }
+
+.closed {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}

@@ -1,0 +1,20 @@
+#game-serving {
+  width: 384px;
+  height: 100vh;
+}
+
+#game-serving-container::before {
+  content: '';
+  position: absolute;
+  width: 384px;
+  height: 100%;
+  background-image: url("/image/serving.webp");
+  background-position: top;
+  background-size: 384px 100% contain;
+  background-repeat: no-repeat;
+  filter: blur(4px) brightness(70%);
+  -webkit-filter: blur(4px) brightness(70%);
+}
+.game-serving-content  {
+  width: 100%;
+}

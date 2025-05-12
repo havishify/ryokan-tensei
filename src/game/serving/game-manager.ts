@@ -2,10 +2,13 @@ import { playSoundXpBeep } from "@/audio/sound";
 import sleep from "@/utils/sleep";
 import { elementGameServingBody } from "@/main";
 
+const map: {}[][] = [];
+
 export default async function prepareServing() {
   const width: number = 6;
   const height: number = 6;
 
+  const map: { pos: { x: number, y: number }, }[][] = [];
   const grid: HTMLButtonElement[][] = [];
 
   for (let i = 0; i < height; i++) {

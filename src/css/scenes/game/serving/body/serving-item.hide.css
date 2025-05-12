@@ -1,0 +1,15 @@
+.servingitem-hide {
+  width: 52px;
+  height: 52px;
+  background-color: rgba(0, 0, 0, 0);
+}
+.servingitem-hide:hover {
+  width: 52px;
+  height: 52px;
+  background-color: rgba(0, 0, 0, 0);
+}
+.servingitem-hide:active {
+  width: 52px;
+  height: 52px;
+  background-color: rgba(0, 0, 0, 0);
+}

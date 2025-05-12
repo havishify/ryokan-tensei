@@ -1,0 +1,24 @@
+#timewindow {
+  background: rgba(255, 255, 255, 0.07);
+  margin-top: 11px;
+  margin: 0;
+  padding: 6px 10px;
+  border-radius: 16px;
+  box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.2), inset -1px -1px 2px rgba(0, 0, 0, 0.2), 1px 2px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(3px);
+  text-align: start;
+}
+#uidatelabel {
+  font-family: "Ownglyph_ParkDaHyun";
+  font-size: 24px;
+  color: #f5f5f5;
+  text-align: center;
+  width: 100%;
+}
+#uiclocklabel {
+  font-family: "Ownglyph_ParkDaHyun";
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: left;
+  width: 100%;
+}

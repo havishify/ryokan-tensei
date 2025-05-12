@@ -1,0 +1,36 @@
+#textbox {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 28vh;
+  background: transparent;
+  overflow: hidden;
+}
+#textbox:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 28vh;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 95%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+}
+#dm {
+  position: relative;
+  text-align: center;
+  margin-top: 0px;
+  z-index: 1;
+}
+
+#cinematicskip {
+  margin: 4px;
+  padding: 6px 14px;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+  top: 0;
+  left: 0;
+  font-size: 14px;
+  z-index: 99;
+}
