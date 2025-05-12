@@ -3,12 +3,14 @@ import { ScenarioGroupProps } from "@/types";
 import sleep from "@/utils/sleep";
 import { ScenarioTextTypes } from "@/types";
 import { typespeed } from "@/global";
-import { dm } from "@/main";
+import { elementDM } from "@/main";
 
 import { clear, end } from "./utils";
 
 let voiceplayer: HTMLAudioElement | null = null;
 let totalSkip: boolean = false;
+let interrupted: boolean = false;
+
 export default async function startScenarioPlayer(scenario: ScenarioGroupProps[]) {
   return new Promise<boolean>(async (resolve) => {
     let donotskip: boolean = false;
@@ -86,10 +88,7 @@ export default async function startScenarioPlayer(scenario: ScenarioGroupProps[]
   });
 }
 
-let interrupted: boolean = false;
 async function text(type: ScenarioTextTypes, str: string | string[], anim: boolean): Promise<boolean> {
-  if (!dm) return false;
-
   const handlerKeydown = (ev: KeyboardEvent) => {
     if (["Enter", " "].includes(ev.key)) {
       anim = false;
@@ -127,7 +126,7 @@ async function text(type: ScenarioTextTypes, str: string | string[], anim: boole
       
   }
 
-  dm.appendChild(target);
+  elementDM.value.appendChild(target);
 
   const addquotationmark = () => target.innerText += ((type === "speech") && '"' || (type === "mind" && `'` || ''));
 

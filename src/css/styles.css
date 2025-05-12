@@ -101,14 +101,6 @@ button:disabled {
   padding: 0;
   transition: all 0.6s ease-out;
 }
-#game-serving {
-  width: auto;
-  height: 100vh;
-}
-#game-serving-container {
-  position: absolute;
-  z-index: 1;
-}
 
 #textbox {
   position: absolute;
@@ -144,6 +136,166 @@ button:disabled {
   left: 0;
   font-size: 14px;
   z-index: 99;
+}
+#game-serving {
+  width: 384px;
+  height: 100vh;
+}
+#game-serving-container::before {
+  content: '';
+  position: absolute;
+  width: 384px;
+  height: 100%;
+  background-image: url("/image/serving.webp");
+  background-position: top;
+  background-size: 384px 100% contain;
+  background-repeat: no-repeat;
+  filter: blur(4px) brightness(70%);
+  -webkit-filter: blur(4px) brightness(70%);
+}
+.game-serving-content  {
+  width: 100%;
+}
+#game-serving-header {
+  margin: 0;
+  padding-top: 16px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+#uitimelabel {
+  background: rgba(255, 255, 255, 0.07);
+  margin-top: 11px;
+  margin: 0;
+  padding: 6px 10px;
+  border-radius: 16px;
+  box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.2), inset -1px -1px 2px rgba(0, 0, 0, 0.2), 1px 2px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(3px);
+  text-align: start;
+}
+#uidatelabel {
+  font-family: "Ownglyph_ParkDaHyun";
+  font-size: 24px;
+  color: #f5f5f5;
+  text-align: center;
+  width: 100%;
+}
+#uiclocklabel {
+  font-family: "Ownglyph_ParkDaHyun";
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: left;
+  width: 100%;
+}
+#uisplabelcover {
+  background-color: white;
+  filter: drop-shadow(0px 2px 3px rgba(0, 0, 0));
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+#uisplabel {
+  background-image: linear-gradient(145deg, #a5d4e5, #529dc6);
+  filter: drop-shadow(-3px -3px 6px rgba(255, 255, 255, 0.5)) drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.2));
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-family: "Ownglyph_ParkDaHyun";
+  font-size: 20px;
+  text-align: center;
+  text-shadow: 1px 2px rgba(141, 141, 141, 0.7);
+  transition: all 1.2 ease-in-out;
+}
+#uiptlabelcover {
+  background-color: white;
+  filter: drop-shadow(0px 2px 3px rgba(0, 0, 0));
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+}
+#uiptlabel {
+  background-image: linear-gradient(145deg, #f7a6b3, #ea4c89);
+  filter: drop-shadow(-3px -3px 6px rgba(255, 255, 255, 0.5)) drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.2));
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  font-family: "Ownglyph_ParkDaHyun";
+  font-size: 20px;
+  text-align: center;
+  text-shadow: 1px 2px rgba(141, 141, 141, 0.7);
+}
+.questwindow {
+  margin-top: 11px;
+  padding: 6px;
+  background: rgba(114, 114, 114, 0.07);
+  border-radius: 16px;
+  box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.2), inset -1px -1px 2px rgba(0, 0, 0, 0.2), 1px 2px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(3px);
+  width: 172px;
+  transition: all 0.6s ease-out;
+}
+.questwindow-type, .questwindow-title, .questwindow-desc {
+  font-family: "Ownglyph_ParkDaHyun";
+}
+.questwindow-type {
+  color: yellow;
+}
+.questwindow-title {
+  color: white;
+  font-size: 24px;
+}
+.questwindow-desc {
+  color: rgba(255, 255, 255, 0.6);
+}
+#game-serving-body {
+  margin-top: 16px;
+  gap: 8px;
+}
+.servingitemrow {
+  gap: 8px;
+}
+.servingitem-hide {
+  width: 52px;
+  height: 52px;
+  background-color: rgba(0, 0, 0, 0);
+}
+.servingitem-hide:hover {
+  width: 52px;
+  height: 52px;
+  background-color: rgba(0, 0, 0, 0);
+}
+.servingitem-hide:active {
+  width: 52px;
+  height: 52px;
+  background-color: rgba(0, 0, 0, 0);
+}
+.servingitem {
+  width: 52px;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.2), inset -1px -1px 2px rgba(0, 0, 0, 0.2), 1px 2px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(3px);
+  border-radius: 24px;
+  transition: all 0.4s ease-out;
+}
+.servingitem:hover {
+  width: 52px;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.3);
+}
+.servingitem:active {
+  width: 52px;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.5);
+}
+#game-serving-footer {
+  position: absolute;
+  bottom: 16px;
+}
+#uiturnlabel {
+  font-family: "Ownglyph_ParkDaHyun";
+  font-size: 28px;
+  color: #f5f5f5;
 }
 
 @keyframes smoothFade {

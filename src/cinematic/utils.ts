@@ -1,9 +1,16 @@
-import { dm } from "@/main";
+import { elementCinematicScene, elementDM } from "@/main";
 
 export function clear() {
-  if (dm) dm.innerHTML = "";
+  elementDM.value.innerHTML = "";
 }
 
 export function end() {
-  if (dm) dm.innerHTML += '<p class="plzpress">엔터 또는 화면을 클릭하십시오.</p>';
+  elementDM.value.innerHTML += '<p class="plzpress">엔터 또는 화면을 클릭하십시오.</p>';
+}
+
+export function fadein() {
+  elementCinematicScene.value.classList.add("closed");
+}
+export function fadeout() {
+  elementCinematicScene.value.classList.remove("closed");
 }

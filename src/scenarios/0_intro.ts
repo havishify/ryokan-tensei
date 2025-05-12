@@ -1,8 +1,9 @@
 import playMusic, { stopMusic } from "@/audio/music";
 import { playSoundBodyFall, playSoundDoor, playSoundIce, playSoundSitting, playSoundSummon } from "@/audio/sound";
+import { clear, fadein, fadeout } from "@/cinematic";
 import { ScenarioGroupProps } from "@/types";
 import sleep from "@/utils/sleep";
-import { changeCinematicimg, cinematicFadein, cinematicFadeout, dm } from "@/main";
+import { changeCinematicimg } from "@/main";
 
 const scenarioIntro: ScenarioGroupProps[] = [
   {
@@ -76,7 +77,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
       }
     ],
     callback: async () => {
-      cinematicFadein();
+      fadein();
 
       await sleep(1250);
 
@@ -84,9 +85,9 @@ const scenarioIntro: ScenarioGroupProps[] = [
 
       await sleep(1250);
 
-      cinematicFadeout();
+      fadeout();
 
-      if (dm) dm.innerHTML = "";
+      clear();
     },
   },
 
@@ -146,7 +147,7 @@ const scenarioIntro: ScenarioGroupProps[] = [
       }
     ],
     callback: async () => {
-      cinematicFadein();
+      fadein();
       
       stopMusic();
 
@@ -156,8 +157,10 @@ const scenarioIntro: ScenarioGroupProps[] = [
       changeCinematicimg("/image/intro/2.webp");
 
       await sleep(1500);
+      
+      fadeout();
 
-      cinematicFadeout();
+      clear();
 
       playMusic("orgol");
     }
