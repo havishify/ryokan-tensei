@@ -1,4 +1,20 @@
-# ryokan-tensei
+# ryokan-tensei 
 ## 전생했더니 여관이 되어버렸다?
 
-#### 개발중...
+### Summary
+
+- dd
+
+<hr>
+
+### Credit
+
+- dd
+
+<hr> 
+
+### (...)
+
+- dd
+
+<hr>
