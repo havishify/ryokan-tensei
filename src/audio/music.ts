@@ -13,7 +13,8 @@ type MusicList =
   "orgol" | 
   "sad" | 
   "crisis" | 
-  "heroine1_theme";
+  "heroine1_theme" | 
+  ''
 
 let element: HTMLAudioElement | null;
 
@@ -46,6 +47,7 @@ export default function playMusic(theme: MusicList) {
       volume = 0.42;
       break;
     default:
+      stopMusic();
       return;
   }
 

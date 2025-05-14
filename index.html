@@ -70,14 +70,28 @@
               </div>
             </div>
           </div>
-          <div id="game-serving-body" class="game-serving-content flex-column"></div>
+          <div id="game-serving-body" class="game-serving-content flex-column">
+            <div id="game-serving-table-detail-window" class="flex-column-left-top closed">
+              <p id="game-serving-table-detail-title">테이블명 (좌표)</p>
+              <div class="flex-row-sb-top fulw">
+                <div class="flex-column-left-top">
+                  <p id="game-serving-table-detail-name">이름 : ㅇㅇ</p>
+                  <p id="game-serving-table-detail-mood">상태 : 😊</p>
+                </div>
+                <img id="game-serving-table-detail-portrait" src="/image/none.webp">
+              </div>
+            </div>
+          </div>
           <div id="game-serving-footer" class="game-serving-content flex-column fulw">
-            <p id="serving-uiturnlabel">2턴 남음</p>
+            <p id="serving-uiturnlabel"></p>
           </div>
         </div>
         <div id="game-serving-tutorial" class="flex-column-bottom full closed">
           <div id="game-serving-tutorial-textbox" class="closed">
             <p id="game-serving-tutorial-dm"></p>
+          </div>
+          <div id="game-serving-tutorial-guide-overlay" class="flex-column full closed">
+            <div id="game-serving-tutorial-guide-stencil"></div>
           </div>
         </div>
       </div>

@@ -1,0 +1,28 @@
+#game-serving-table-detail-window {
+  position: absolute;
+  margin: 0;
+  padding: 16px;
+  width: 332px;
+  height: 592px;
+  background-color: rgba(65, 65, 65, 0.95);
+  box-shadow: 0 5px 15px rgba(15, 15, 15, 0.6);
+  border-radius: 16px;
+  z-index: 10;
+}
+
+#game-serving-table-detail-title {
+  margin: 0 0 16px 0;
+  padding: 0;
+  font-size: 24px;
+  font-weight: 400;
+}
+#game-serving-table-detail-name {
+  font-size: 16px;
+}
+#game-serving-table-detail-mood {
+  font-size: 16px;
+}
+
+#game-serving-table-detail-portrait {
+  width: 204px;
+}

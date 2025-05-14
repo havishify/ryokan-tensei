@@ -1,11 +1,13 @@
-import { playSoundBeep1 } from "@/audio/sound";
+import { playSoundBeep1, playSoundWinOpen } from "@/audio/sound";
 import { ElementProperty, Property } from "@/types";
 import { hideTooltip, setTooltip, showTooltip, updateTooltipPosition } from "@/ui";
 import { sleep } from "@/utils";
 import { elementGameServingBody, quest } from "@/main";
 
-import startGameServingTutorial from "./tutorial";
-import { elGameServingTutorial, listen, map, ServingMapRecord } from ".";
+import startGameServingTutorial, { elGameServingTutorial } from "./tutorial";
+import { elGSTableDetail, tableDetail } from "./table";
+import { ServingMapRecord } from "./type";
+import { listen, map } from ".";
 
 export default async function prepareServing(isTutorial: boolean = false) {
   if (isTutorial) elGameServingTutorial.value.classList.remove("closed");
@@ -21,15 +23,26 @@ export default async function prepareServing(isTutorial: boolean = false) {
       const y: number = i;
 
       const position: { x: number, y: number } = { x, y };
-      const el: ElementProperty<HTMLButtonElement> = new ElementProperty<HTMLButtonElement>();
-      const avatar: Property<string> = new Property<string>('',
+      const el = new ElementProperty<HTMLButtonElement>();
+      const avatar = new Property<string>('',
         (path: string) => {
           if (path) el.value.style.setProperty("--avatar", `url("${path}")`);
         }
       );
       const state: string = "빈 테이블";
 
-      const record: ServingMapRecord = { position, el, avatar, state };
+      const record: ServingMapRecord = { 
+        position, 
+        el, 
+        avatar, 
+        state, 
+        detail: {
+          exists: false,
+          name: '',
+          mood: '',
+          portrait: ''
+        } 
+      };
 
       return record;
     });
@@ -45,6 +58,20 @@ export default async function prepareServing(isTutorial: boolean = false) {
       map.value[i][j].el.value = document.createElement("button");
       map.value[i][j].el.value.className = "servingitem-hide";
       
+      map.value[i][j].el.addListener("click", () => {
+        if (map.value[i][j].detail.exists) {
+          tableDetail.value = {
+            title: map.value[i][j].state,
+            position: map.value[i][j].position,
+            name: map.value[i][j].detail.name,
+            mood: map.value[i][j].detail.mood,
+            portrait: map.value[i][j].detail.portrait
+          };
+          
+          playSoundWinOpen();
+          elGSTableDetail.value.classList.remove("closed");
+        }
+      });
       map.value[i][j].el.addListener("mouseenter", (ev: MouseEvent) => {
         updateTooltipPosition(ev);
         setTooltip(`${map.value[i][j].state}\n(${j + 1}, ${i + 1})`);
@@ -53,9 +80,13 @@ export default async function prepareServing(isTutorial: boolean = false) {
       map.value[i][j].el.addListener("mousemove", (ev: MouseEvent) => updateTooltipPosition(ev));
       map.value[i][j].el.addListener("mouseleave", () => hideTooltip());
 
-      if (i === 4 && j === 3) {
+      if (isTutorial && i === 4 && j === 3) {
         map.value[i][j].avatar.value = "/image/serving/avatar_tutorial_heroine1.webp";
         map.value[i][j].state = "그녀";
+        map.value[i][j].detail.exists = true;
+        map.value[i][j].detail.name = "알 수 없음";
+        map.value[i][j].detail.mood = "😡";
+        map.value[i][j].detail.portrait = "/image/intro/5.webp";
       }
 
       row.append(map.value[i][j].el.value);

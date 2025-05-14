@@ -1,0 +1,1 @@
+export type MiniScenarioRecord = { script: string, voicepath: string, callback?: () => Promise<void> };

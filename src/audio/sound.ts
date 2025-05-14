@@ -7,6 +7,7 @@ const soundSummon = new Audio("/audio/sound/summon.ogg");
 const soundIce = new Audio("/audio/sound/ice.ogg");
 const soundBeep1 = new Audio("/audio/sound/beep1.ogg");
 const soundChime = new Audio("/audio/sound/chime.ogg");
+const soundWinOpen = new Audio("/audio/sound/winopen.ogg");
 
 export function playSoundClick() {
   const element = soundClick.cloneNode() as HTMLAudioElement;
@@ -59,6 +60,12 @@ export function playSoundBeep1() {
 
 export function playSoundChime() {
   const el = soundChime.cloneNode() as HTMLAudioElement;
+  el.volume = 0.6;
+  el.play();
+}
+
+export function playSoundWinOpen() {
+  const el = soundWinOpen.cloneNode() as HTMLAudioElement;
   el.volume = 0.6;
   el.play();
 }

@@ -3,25 +3,14 @@ import { hideTooltip, setTooltip, showTooltip, updateTooltipPosition } from "@/u
 import { getHourstr } from "@/utils";
 import { time } from "@/main";
 
-export type ServingMapRecord = {
-  position: {
-    x: number,
-    y: number,
-  },
-  el: ElementProperty<HTMLButtonElement>,
-  avatar: Property<string>,
-  state: string,
-};
+import { ServingMapRecord } from "./type";
 
-const elGameServingTimeWindow: ElementProperty<HTMLDivElement> = new ElementProperty<HTMLDivElement>("#serving-timewindow");
-const elGameServingSpGauge: ElementProperty<HTMLDivElement> = new ElementProperty<HTMLDivElement>("#serving-spgague-uispgague-in");
-const elGameServingPointGauge: ElementProperty<HTMLDivElement> = new ElementProperty<HTMLDivElement>("#serving-pointgague-uipointgague-in");
-export const elGameServingQuestWindow: ElementProperty<HTMLDivElement> = new ElementProperty<HTMLDivElement>(".serving-questwindow");
-export const elGameServingTutorial: ElementProperty<HTMLDivElement> = new ElementProperty<HTMLDivElement>("#game-serving-tutorial");
-export const elGameServingTutorialTextbox: ElementProperty<HTMLDivElement> = new ElementProperty<HTMLDivElement>("#game-serving-tutorial-textbox");
-export const elGameServingTutorialDM: ElementProperty<HTMLDivElement> = new ElementProperty<HTMLDivElement>("#game-serving-tutorial-dm");
+const elGameServingTimeWindow = new ElementProperty<HTMLDivElement>("#serving-timewindow");
+const elGameServingSpGauge = new ElementProperty<HTMLDivElement>("#serving-spgague-uispgague-in");
+const elGameServingPointGauge = new ElementProperty<HTMLDivElement>("#serving-pointgague-uipointgague-in");
+export const elGameServingQuestWindow = new ElementProperty<HTMLDivElement>(".serving-questwindow");
 
-export const map: Property<ServingMapRecord[][]> = new Property<ServingMapRecord[][]>([]);
+export const map = new Property<ServingMapRecord[][]>([]);
 
 export function cleanup() {
   elGameServingTimeWindow.cleanup();

@@ -99,7 +99,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const debug = true;
   if (debug) {
     new Promise((resolve) => setTimeout(resolve, 250)).then(() => {
-      playMusic("heroine1_theme");
+      playMusic("");
 
       elementTitleScreen.value.classList.add("closed");
       elementGameServingScene.value.classList.remove("closed");
